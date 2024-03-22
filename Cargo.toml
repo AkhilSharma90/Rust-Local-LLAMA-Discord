@@ -1,0 +1,31 @@
+[package]
+description = "A Discord bot, written in Rust, that generates responses using any language model supported by `llm`."
+edition = "2021"
+license = "GPL-3.0-only"
+name = "discord-llm-bot"
+version = "0.2.0"
+author = "akhil sharma"
+
+[dependencies]
+anyhow = "1.0.66"
+flume = "0.10"
+rand = "0.8.5"
+serde = { version = "1.0.150", features = ["derive"] }
+serenity = { version = "0.11.5", default-features = false, features = [
+    "client",
+    "gateway",
+    "rustls_backend",
+    "model",
+    "collector",
+] }
+tokio = { version = "1.0", features = ["full"] }
+toml = "0.7.3"
+indoc = "2.0.1"
+thiserror = "1.0"
+
+llm = { git = "https://github.com/rustformers/llm.git", rev = "c3eab081371be0f3857514d98804f4ec19026e2b" }
+
+[features]
+cublas = ["llm/cublas"]
+clblast = ["llm/clblast"]
+metal = ["llm/metal"]

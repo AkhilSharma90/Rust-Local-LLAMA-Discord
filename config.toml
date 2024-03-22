@@ -1,0 +1,36 @@
+[authentication]
+discord_token = ""
+client_id = ""
+
+[model]
+path = "models/llama-2-7b-chat.ggmlv3.q2_K.bin"
+context_token_length = 2048
+architecture = "LLaMA"
+prefer_mmap = true
+use_gpu = true
+
+[inference]
+thread_count = 8
+batch_size = 8
+discord_message_update_interval_ms = 250
+replace_newlines = true
+show_prompt_template = true
+
+[commands.hallucinate]
+enabled = true
+description = "Hallucinates some text."
+prompt = "{{PROMPT}}"
+
+[commands.alpaca]
+enabled = true
+description = "Responds to the provided instruction."
+prompt = """
+Below is an instruction that describes a task. Write a response that appropriately completes the request.
+
+### Instruction:
+
+{{PROMPT}}
+
+### Response:
+
+"""

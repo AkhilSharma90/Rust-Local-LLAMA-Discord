@@ -1,0 +1,4 @@
+/target
+# config.toml
+models/llama-2-7b-chat.ggmlv3.q2_K.bin
+models/nous-hermes-llama2-13b.Q4_0.gguf
